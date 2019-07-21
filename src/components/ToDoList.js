@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom';
+import ListItem from './ListItem';
 
 class ToDoList extends Component {
+
     render() {
         return (
           <div>
             <ul>
               {this.props.todoItems.map((item, i) => (
-                  <li key={i}>
-                    <Link to={`/task/${i}`}>
-                      <p {...item}>{item.task}</p>
-                    </Link>  
-                  <button>Remove</button>
-                  <button>Edit</button>
-                </li>
+                  <ListItem {...item} key={i}/>
               ))
             }
             </ul>
