@@ -9,7 +9,7 @@ class ToDoList extends Component {
           <div>
             <ul>
               {this.props.todoItems.map((item, i) => (
-                  <ListItem {...item} key={i}/>
+                  <ListItem {...item} key={i} index={i}/>
               ))
             }
             </ul>
