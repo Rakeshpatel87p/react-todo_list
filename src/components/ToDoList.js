@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import ListItem from './ListItem';
+import { bindActionCreators } from 'redux';
+import * as actionCreators from '../actions/actionCreators';
 
 class ToDoList extends Component {
 
@@ -9,7 +11,7 @@ class ToDoList extends Component {
           <div>
             <ul>
               {this.props.todoItems.map((item, i) => (
-                  <ListItem {...item} key={i} index={i}/>
+                  <ListItem {...this.props} {...item} key={i} index={i}/>
               ))
             }
             </ul>
@@ -25,7 +27,11 @@ function mapStateToProps(state) {
 	}
 }
 
-export default connect(mapStateToProps)(ToDoList);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToDoList);
 
 
 //Set up basic views
