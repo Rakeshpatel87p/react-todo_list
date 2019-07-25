@@ -16,10 +16,11 @@ class ListItem extends Component {
         
     }
 
-    handleEditedToDoItem = (e) => {
+    handleEditedToDoItem = (e, i) => {
         e.preventDefault();
-        console.log(this.refs.editedTodo);
-        //this.props.editToDoItem();
+        const editedTodo = this.refs.editedTodo.value;
+        this.props.editToDoItem(i, editedTodo);
+        //this.setState({isEditing: false});
     }
 
     render() {
@@ -28,7 +29,7 @@ class ListItem extends Component {
             <li key={index}>
                 {
                     this.state.isEditing 
-                    ?   <form ref="commentForm" className="comment-form" onSubmit={(e) => this.handleEditedToDoItem()}>
+                    ?   <form ref="commentForm" className="comment-form" onSubmit={(e) => this.handleEditedToDoItem(e, index)}>
                             <input type="text" ref="editedTodo" placeholder={this.props.task}/>
                         </form>
                     
@@ -40,7 +41,7 @@ class ListItem extends Component {
  
                 }
                     <button onClick={(e) => this.removeTodo(index)}>Remove</button>
-                    <button onClick={() => this.editToDoItem()}>Edit</button>
+                    <button type="button" onClick={() => this.editToDoItem()}>Edit</button>
             </li>
         )
     }
