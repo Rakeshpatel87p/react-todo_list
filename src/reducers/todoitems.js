@@ -8,9 +8,16 @@ export default function postTodoItems(state = [], action) {
                 ...state.slice(0, action.index),
                 ...state.slice(action.index + 1, state.length)
             ]
+        
+        case 'EDIT_TO_DO_ITEM' : 
+            console.log('Edit to do item');
+            return [
+                ...state,
+                state[action.index].task = action.editedToDoItem
+            ]
         default: 
             return state
     }
-    
+    console.log(state)
     return state
 }

@@ -20,7 +20,7 @@ class ListItem extends Component {
         e.preventDefault();
         const editedTodo = this.refs.editedTodo.value;
         this.props.editToDoItem(i, editedTodo);
-        //this.setState({isEditing: false});
+        this.setState({isEditing: false});
     }
 
     render() {
