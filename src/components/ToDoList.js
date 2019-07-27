@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+
 import ListItem from './ListItem';
+import AddToDo from './AddToDo';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../actions/actionCreators';
 
@@ -15,6 +17,7 @@ class ToDoList extends Component {
               ))
             }
             </ul>
+            <AddToDo {...this.props}/>
           </div>
         )
     }

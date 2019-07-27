@@ -13,3 +13,11 @@ export function editToDoItem(index, editedToDoItem) {
         editedToDoItem
     }
 }
+
+export function addToDoItem(newToDo, dataAdded) {
+    return {
+        type: 'ADD_NEW_TO_DO',
+        newToDo,
+        dataAdded
+    }
+}
