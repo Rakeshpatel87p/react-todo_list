@@ -19,6 +19,7 @@ class ListItem extends Component {
     handleEditedToDoItem = (e, i) => {
         e.preventDefault();
         const editedTodo = this.refs.editedTodo.value;
+        console.log(this.props.dateAdded);
         this.props.editToDoItem(i, editedTodo);
         this.setState({isEditing: false});
     }
